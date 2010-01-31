@@ -1,0 +1,555 @@
+@charset "utf-8";
+
+/**************************************************************
+   AUTHOR:  Pat Heard (fullahead.org)
+   DATE:    2006.03.19
+   PURPOSE: Controls the layout of the site and styles
+            the menus
+ **************************************************************/
+
+
+
+/**************************************************************
+   #content: Sets the width of the site.  Make changes here
+             to convert to a fixed width site.
+ **************************************************************/
+
+#content {
+  height: 100%;
+  min-height: 100%;
+
+  text-align: left;
+}
+
+#content,
+#width {
+  /* max-width hack for IE since it doesn't understand the valid css property */
+  width: expression(document.body.clientWidth > 1000 ? "1000px" : "94%");
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+#content[id],
+#width[id] {
+  width: 94%;
+  height: auto;
+}
+
+
+
+
+/**************************************************************
+   #header: Holds the site title and header images
+ **************************************************************/
+
+#header {
+  position: relative;
+  height: 193px;
+}
+
+/* Holds the site title and subtitle */
+#header #title {
+  position: absolute;
+  z-index: 3;
+  top: 10px;
+  left: 130px;
+
+  padding: 5px;
+  text-align: right;
+}
+
+#header h1 {
+  margin: 0;
+  padding: 0;
+
+  font: 700 3em "trebuchet ms", serif;
+  letter-spacing: -3px;
+  text-transform: lowercase;
+  color: #FFF;
+}
+
+#header h2 {
+  position: absolute;
+  top: 9px;
+  right: 5px;
+
+  margin: 0;
+  padding: 0;
+
+  font: 700 1.1em "trebuchet ms", serif;
+  text-transform: lowercase;
+  color: #00F0EC;
+}
+
+
+/* Sets where the header images will go */
+#header img.left {
+  position: absolute;
+  z-index: 1;
+
+  top: 0;
+  left: 0;
+}
+
+#header img.right {
+  position: absolute;
+  z-index: 0;
+
+  top: 0;
+  right: 0;
+}
+
+#header img.balloons {
+  position: absolute;
+  z-index: 2;
+
+  top: 70px;
+  right: 400px;
+}
+
+
+
+/**************************************************************
+   #mainMenu: The top level site menu
+ **************************************************************/
+
+#mainMenu {
+  float: left;
+  width: 100%;
+  clear: both;
+  min-width: 956px;
+  width: auto !important;
+  width: 956px;
+}
+
+#mainMenu ul {
+  margin: 0;
+  padding: 0;
+}
+
+#mainMenu li {
+  display: inline;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#mainMenu li a {
+  float: left;
+  margin: 0 2px;
+  padding: 5px 0.5em;
+
+  font: 400 1.1em "微軟正黑體", "trebuchet ms", serif;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: lowercase;
+  color: #FFF;
+}
+
+#mainMenu li a:hover,
+#mainMenu li a.here {
+  color: #65EBFF;
+  border-top: 5px solid #000;
+}
+
+#mainMenu li a.last {
+  margin-right: 0;
+}
+
+
+
+
+/**************************************************************
+   .sideMenu: The side bar menu
+ **************************************************************/
+
+ul.sideMenu {
+  margin: 0;
+  padding: 0;
+}
+
+.sideMenu li {
+  display: inline;
+
+  /* Needed since IE fails when you give it list-style: none; */
+  list-style-image: url(foo.gif);
+  font: 400 1.3em "trebuchet ms", serif;
+}
+
+.sideMenu li a {
+  display: block;
+  margin: 0.2em 0;
+  padding: 3px 5px;
+
+  text-decoration: none;
+  color: #FFF;
+}
+
+.sideMenu li a:hover {
+  color: #65EBFF;
+  background: #5F5F5F;
+}
+
+/* Active menu item */
+.sideMenu li.here {
+  display: block;
+  padding: 5px;
+  color: #65EBFF;
+  background: #555;
+}
+
+/* Submenu of active menu item */
+.sideMenu li.here ul {
+  margin: 0;
+  padding: 0;
+}
+
+.sideMenu li.here ul li a {
+  padding-left: 35px;
+  font: 400 0.55em verdana, arial, sans-serif;
+  color: #FFF;
+  background: url(../images/bg/bullet.gif) no-repeat 10px 0px;
+}
+
+.sideMenu li.here ul li a:hover {
+  color: #9FF3FF;
+  background: #5F5F5F url(../images/bg/bullet.gif) no-repeat 10px 0px;
+}
+
+
+
+/**************************************************************
+   #page: Holds the main page content.
+ **************************************************************/
+
+#page {
+  float: left;
+  width: 100%;
+  clear: both;
+
+  padding-bottom: 4em;
+}
+
+
+
+
+/**************************************************************
+   #footer: The page footer - will stick to the bottom if not
+            enough content.
+ **************************************************************/
+
+#footer {
+  float: left;
+  width: 100%;
+  clear: both;
+
+  margin-top: -3.8em;
+  background: #000 url(../images/bg/footer.jpg) repeat-x top left;
+}
+
+/* Sets the width of the footer content */
+#footer #width {
+  position: relative;
+  z-index: 3;
+  font-size: 0.85em;
+  padding-top: 27px;
+}
+
+
+
+/**************************************************************
+   Width classes used by the site columns
+ **************************************************************/
+
+.width100 {
+  width: 100%;
+}
+
+.width75 {
+  width: 74%;
+}
+
+.width66 {
+  width: 65.7%;
+}
+
+.width50 {
+  width: 49.7%;
+}
+
+.width33 {
+  width: 32.7%;
+}
+
+.width25 {
+  width: 24.7%;
+}
+
+
+
+/**************************************************************
+   Alignment classes
+ **************************************************************/
+
+.floatLeft {
+  float: left;
+}
+
+.floatRight {
+  float: right;
+}
+
+.alignLeft {
+  text-align: left;
+}
+
+.alignRight {
+  text-align: right;
+}
+
+
+
+/**************************************************************
+   Generic display classes
+ **************************************************************/
+
+.clear {
+  clear: both;
+}
+
+.block {
+  display: block;
+}
+
+.small {
+  font-size: 0.8em;
+}
+
+.green {
+  color: #A1FF45;
+}
+
+.red {
+  color: #EA1B00;
+}
+
+.grey {
+  color: #666;
+}
+
+.grey a {
+  color: #999;
+}
+
+.grey a:hover {
+  color: #EEE;
+}
+
+.gradient {
+  margin-bottom: 2em;
+  background: #555 url(../images/bg/gradient.jpg) repeat-x bottom left;
+}
+
+.white {
+  color: #FFF;
+}
+
+.bigFont {
+  font-size: 1.2em;
+}
+
+.alignCenter {
+  margin: 0 auto;
+}
+
+.switchControls a {
+  padding-left: 10px;
+  display: block;
+  text-decoration: none;
+  line-height: 1.2em;
+  border: 2px solid transparent;
+}
+.switchControls a.selected {
+  background: url(../images/bg/triangle.gif) no-repeat 0 50%;
+  color: yellow;
+}
+.switchControls a:hover {
+  background-color: green;
+  color: yellow;
+}
+
+/**
+ * Custom
+ */
+.game_title {
+  width: 97%;
+  text-align: center;
+}
+
+.top_game_list {
+  margin: 0 40px;
+  height: 170px;
+  width: 860px;
+  overflow: hidden;
+}
+
+.top_game_list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 1200px;
+}
+.top_game_list li {
+  width: 144px;
+  height: 200px;
+  float: left;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+.top_game_list a {
+  margin: 0 auto;
+  text-decoration: none;
+}
+.top_game_list a span {
+  display: block;
+  width: 106px;
+  height: 106px;
+  margin: 0 auto;
+  border: 3px solid black;
+}
+.top_game_list a:hover span {
+  border: 3px solid orange;
+}
+.top_game_list a img {
+  border: 3px solid #FFF;
+}
+.top_game_list a em {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-style: normal;
+}
+.top_game_list a:hover em {
+  color: yellow;
+}
+
+#home_cat dl {
+  padding: 0 0 0 20px;
+  width: 22.6%;
+  float: left;
+}
+#home_cat dd {
+  height: 40px;
+  width: 100%;
+  overflow: hidden;
+}
+#home_cat dd a {
+  text-decoration: none;
+  width: 999px;
+  display: block;
+}
+#home_cat dd a img {
+  padding: 1px;
+  background-color: white;
+  border: 2px solid Dimgray;
+}
+#home_cat dd a:hover {
+  color: yellow;
+}
+#home_cat dd a:hover {
+  color: yellow;
+}
+#home_cat dd a:hover img {
+  border: 2px solid orange;
+}
+
+
+.game_list_page {
+  margin: 0 40px;
+  width: 864px;
+  overflow: hidden;
+}
+.game_list_page ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.game_list_page ul li {
+  width: 144px;
+  height: 200px;
+  float: left;
+  margin: 0;
+  padding: 0;
+  display: block;
+  overflow: hidden;
+}
+.game_list_page a {
+  margin: 0 auto;
+  text-decoration: none;
+  *cursor: pointer;
+}
+.game_list_page a span {
+  display: block;
+  width: 106px;
+  height: 106px;
+  margin: 0 auto;
+  border: 3px solid black;
+}
+.game_list_page a:hover span {
+  border: 3px solid orange;
+}
+.game_list_page a img {
+  border: 3px solid #FFF;
+}
+.game_list_page a em {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-style: normal;
+}
+.game_list_page a:hover em {
+  color: yellow;
+}
+
+.paginator {
+  clear: both;
+  text-align: center;
+}
+.paginator span {
+  padding: 2px 6px;
+  border: 1px solid #FFF;
+}
+.paginator span.current {
+  color: white;
+  font-weight: bold;
+  background-color: #0080FF;
+}
+.paginator span.disable {
+  color: silver;
+  border: 1px solid silver;
+}
+.paginator a {
+  padding: 2px 6px;
+  border: 1px solid #FFF;
+  text-decoration: none;
+  color: #FFF;
+}
+.paginator a:hover {
+  border: 1px solid #FF8080;
+  color: #FF8080;
+}
+.paginator .previous {
+  margin-right: 20px;
+}
+.paginator .next {
+  margin-left: 20px;
+}
+
+#game_container {
+  text-align: center;
+}
+#game_swf {
+  border: 5px solid white;
+  display: inline-block;
+}
